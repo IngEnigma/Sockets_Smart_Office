@@ -7,6 +7,7 @@ public class SensorLuz extends Sensor {
 
     @Override
     public double leerValor() {
-        return getRandom().nextDouble() * 100; // 0% - 100%
+        double valor = getRandom().nextDouble() * 100; // 0% - 100%
+        return Utils.redondearADosDecimales(valor);
     }
 }

@@ -1,65 +1,35 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.Socket;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.List;
 
 public class Cliente {
     private static final String SERVIDOR = "localhost";
     private static final int PUERTO = 12345;
-    private static final String PREFIJO_EVENTO = "Evento: ";
-    private static final String FORMATO_INCORRECTO = "Formato incorrecto del mensaje: ";
 
     public static void main(String[] args) {
-        ControladorOficina controlador = new ControladorOficina();
+        try (DatagramSocket socket = new DatagramSocket()) {
+            GestorSensores gestorSensores = new GestorSensores();
 
-        try (Socket socket = new Socket(SERVIDOR, PUERTO);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+            while (true) {
+                List<EventoSensor> eventos = gestorSensores.leerDatosSensores();
 
-            System.out.println("Conectado al servidor. Esperando eventos...");
+                for (EventoSensor evento : eventos) {
+                    String mensaje = "Evento: " + evento.toString();
+                    byte[] datos = mensaje.getBytes();
+                    InetAddress direccion = InetAddress.getByName(SERVIDOR);
 
-            procesarMensajes(in, controlador);
+                    DatagramPacket paquete = new DatagramPacket(datos, datos.length, direccion, PUERTO);
+                    socket.send(paquete);
 
-        } catch (IOException e) {
-            System.out.println("Error en la conexión con el servidor.");
-            e.printStackTrace();
-        }
-    }
+                    System.out.println("Mensaje enviado al servidor UDP: " + mensaje);
+                }
 
-    private static void procesarMensajes(BufferedReader in, ControladorOficina controlador) throws IOException {
-        String mensaje;
-        while ((mensaje = in.readLine()) != null) {
-            System.out.println("Notificación recibida: " + mensaje);
-            EventoSensor evento = parseEvento(mensaje);
-            if (evento != null) {
-                System.out.println("Evento procesado: " + evento);
-                controlador.procesarEvento(evento);
-            }
-        }
-    }
-
-    private static EventoSensor parseEvento(String mensaje) {
-        try {
-            String mensajeSinPrefijo = mensaje.replace(PREFIJO_EVENTO, "");
-            System.out.println("Procesando mensaje: " + mensajeSinPrefijo);
-            String[] partes = mensajeSinPrefijo.split(", Valor=");
-            if (partes.length == 2) {
-                return crearEvento(partes);
-            } else {
-                System.out.println(FORMATO_INCORRECTO + mensajeSinPrefijo);
+                Thread.sleep(10000); // 10 segundos
             }
         } catch (Exception e) {
-            System.out.println("Error al procesar evento: " + mensaje);
+            System.out.println("Error en el cliente UDP.");
             e.printStackTrace();
         }
-        return null;
-    }
-
-    private static EventoSensor crearEvento(String[] partes) {
-        String tipo = partes[0].replace("EventoSensor Sensor='", "").replace("'", "");
-        double valor = Double.parseDouble(partes[1].replace("}", ""));
-        System.out.println("Evento validado: Tipo=" + tipo + ", Valor=" + valor);
-        return new EventoSensor(tipo, valor);
     }
 }

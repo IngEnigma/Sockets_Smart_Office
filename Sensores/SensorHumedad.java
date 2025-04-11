@@ -7,6 +7,7 @@ public class SensorHumedad extends Sensor {
 
     @Override
     public double leerValor() {
-        return 40 + getRandom().nextDouble() * 20; // 40% - 60%
+        double valor = 40 + getRandom().nextDouble() * 20; // 40% - 60%
+        return Utils.redondearADosDecimales(valor);
     }
 }
