@@ -8,6 +8,8 @@ public class SensorTemperatura extends Sensor {
     @Override
     public double leerValor() {
         double valor = 20 + getRandom().nextDouble() * 10; // 20° - 30°
-        return Utils.redondearADosDecimales(valor);
+        valor = Utils.redondearADosDecimales(valor);
+        notificarObservers(valor); 
+        return valor;
     }
 }

@@ -8,6 +8,8 @@ public class SensorCalidadAire extends Sensor {
     @Override
     public double leerValor() {
         double valor = getRandom().nextDouble() * 100; // 0% - 100%
-        return Utils.redondearADosDecimales(valor);
+        valor = Utils.redondearADosDecimales(valor);
+        notificarObservers(valor); 
+        return valor;
     }
 }

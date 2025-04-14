@@ -3,7 +3,6 @@ Sistema de Iluminación y Temperatura para una Oficina
 Ajuste Automático de Iluminación y Temperatura
 El sistema regula la iluminación y la temperatura con base en distintos factores ambientales para garantizar un ambiente cómodo y eficiente.
 
-
 Sensores Utilizados:
 
 Temperatura interior y exterior → Para determinar la necesidad de calefacción o aire acondicionado.
@@ -13,8 +12,6 @@ Humedad → Para mantener un nivel adecuado de confort.
 Luz → Para ajustar la iluminación y el control de persianas.
 
 Calidad del aire → Para evaluar la necesidad de ventilación.
-
-
 
 Actuadores Disponibles:
 
@@ -27,8 +24,6 @@ Servos para persianas o cortinas → Regulan la entrada de luz natural.
 aire acondicionado → Enfría el ambiente cuando la temperatura es alta.
 
 calefacción → Aumenta la temperatura cuando hace frío.
-
-
 
 Ejemplo de Funcionamiento:
 Temperatura agradable (ni frío ni calor):
@@ -51,7 +46,7 @@ Calor:
 
 Se cierran las ventanas y se activa el aire acondicionado.
 
-Realiza este sistena utilizando buenas practicas y patrones de diseño usando java y sockets udp o tcp los que mas conveniente sean.
+Realiza este sistena utilizando buenas practicas y patrones de diseño usando java y sockets udp 
 
 Implementando un servidor que reciva ventos de lo sensores y los retransmita a los clientes
 Desarrolar un cliente que se conecte el servidor y escuche las notificaciones eviadas

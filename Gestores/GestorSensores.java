@@ -19,6 +19,10 @@ public class GestorSensores {
         sensores.add(new SensorCalidadAire(random));
     }
 
+    public List<Sensor> getSensores() {
+        return sensores;
+    }
+
     public List<EventoSensor> leerDatosSensores() {
         List<EventoSensor> eventos = new ArrayList<>();
         for (Sensor sensor : sensores) {
