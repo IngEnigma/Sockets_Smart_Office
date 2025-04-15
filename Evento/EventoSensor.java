@@ -3,19 +3,23 @@ public class EventoSensor {
     private double valor;
     
     public static EventoSensor fromString(String mensaje) {
-        try {
-            String[] partes = mensaje.split("Sensor='|', Valor=");
-            if (partes.length < 2) return null;
+        if (mensaje == null || !mensaje.contains("Sensor='") || !mensaje.contains("Valor=")) return null;
     
-            String tipo = partes[1];
-            double valor = Double.parseDouble(partes[2]);
+        try {
+            int startTipo = mensaje.indexOf("Sensor='") + 8;
+            int endTipo = mensaje.indexOf("'", startTipo);
+            String tipo = mensaje.substring(startTipo, endTipo);
+    
+            int startValor = mensaje.indexOf("Valor=") + 6;
+            double valor = Double.parseDouble(mensaje.substring(startValor));
     
             return new EventoSensor(tipo, valor);
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
-    }  
-      
+    }    
+
     public EventoSensor(String tipo, double valor) {
         this.tipo = tipo;
         this.valor = valor;

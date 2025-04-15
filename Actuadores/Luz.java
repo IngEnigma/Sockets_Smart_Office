@@ -12,7 +12,6 @@ public class Luz implements Actuador {
     @Override
     public void apagar() {
         this.encendida = false;
-        this.intensidad = 0;
         System.out.println("Luces apagadas");
     }
 
@@ -21,13 +20,11 @@ public class Luz implements Actuador {
         if (intensidad < 0) intensidad = 0;
         if (intensidad > 100) intensidad = 100;
 
-        this.intensidad = intensidad;
-        if (intensidad > 0) {
-            this.encendida = true;
-        } else {
-            this.encendida = false;
+        if (this.intensidad != intensidad) {
+            this.intensidad = intensidad;
+            this.encendida = intensidad > 0;
+            System.out.println("Ajustando intensidad de las luces a " + intensidad + "%");
         }
-        System.out.println("Ajustando intensidad de las luces a " + intensidad + "%");
     }
 
     public boolean isEncendida() {

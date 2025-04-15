@@ -12,7 +12,6 @@ public class AireAcondicionado implements Actuador {
     @Override
     public void apagar() {
         this.encendido = false;
-        this.temperatura = 0;
         System.out.println("Aire acondicionado apagado");
     }
 
@@ -22,7 +21,7 @@ public class AireAcondicionado implements Actuador {
         if (temperatura > 30) temperatura = 30;
 
         this.temperatura = temperatura;
-        this.encendido = true;
+        if (!encendido) encender();
         System.out.println("Ajustando aire acondicionado a " + temperatura + "°C");
     }
 

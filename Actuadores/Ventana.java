@@ -18,12 +18,11 @@ public class Ventana implements Actuador {
 
     @Override
     public void ajustar(int porcentajeApertura) {
-        if (porcentajeApertura > 50) {
-            this.abierta = true;
-        } else {
-            this.abierta = false;
-        }
-        System.out.println("Ajustando ventana a " + porcentajeApertura + "% de apertura");
+        if (this.porcentajeApertura != porcentajeApertura) {
+            this.porcentajeApertura = porcentajeApertura;
+            this.abierta = porcentajeApertura > 0;
+            System.out.println("Ajustando persiana a " + porcentajeApertura + "% de apertura");
+        }   
     }
 
     public boolean isAbierta() {

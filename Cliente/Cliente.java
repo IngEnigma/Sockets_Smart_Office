@@ -1,10 +1,13 @@
 import java.net.InetAddress;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Cliente implements SensorObserver {
+    ExecutorService pool = Executors.newFixedThreadPool(5);
     private static final String SERVIDOR = "localhost";
     private static final int PUERTO = 12345;
-    private UDPManager udpManager;
+    private ComunicadorUDP udpManager;
 
     public Cliente() throws Exception {
         this.udpManager = new UDPManager();
@@ -12,14 +15,16 @@ public class Cliente implements SensorObserver {
 
     @Override
     public void actualizar(EventoSensor evento) {
-        try {
-            String mensaje = "Evento: " + evento.toString();
-            InetAddress direccion = InetAddress.getByName(SERVIDOR);
-            udpManager.enviarMensaje(mensaje, direccion, PUERTO);
-            System.out.println("Mensaje enviado al servidor UDP: " + mensaje);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        pool.execute(() -> {
+            try {
+                String mensaje = "Evento: " + evento.toString();
+                InetAddress direccion = InetAddress.getByName(SERVIDOR);
+                udpManager.enviarMensaje(mensaje, direccion, PUERTO);
+                System.out.println("Mensaje enviado al servidor UDP: " + mensaje);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void iniciar() throws Exception {

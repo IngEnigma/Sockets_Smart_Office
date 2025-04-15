@@ -1,18 +1,17 @@
 public class Calefaccion implements Actuador {
-    private boolean encendida;
+    private boolean encendido;
     private int temperatura; 
 
     @Override
     public void encender() {
-        this.encendida = true;
+        this.encendido = true;
         this.temperatura = 22; 
         System.out.println("Calefacción encendida a 22°C");
     }
 
     @Override
     public void apagar() {
-        this.encendida = false;
-        this.temperatura = 0;
+        this.encendido = false;
         System.out.println("Calefacción apagada");
     }
 
@@ -22,12 +21,12 @@ public class Calefaccion implements Actuador {
         if (temperatura > 30) temperatura = 30;
 
         this.temperatura = temperatura;
-        this.encendida = true;
+        if (!encendido) encender();
         System.out.println("Ajustando calefacción a " + temperatura + "°C");
     }
 
     public boolean isEncendida() {
-        return encendida;
+        return encendido;
     }
 
     public int getTemperatura() {
