@@ -1,11 +1,14 @@
 import java.net.DatagramPacket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ServidorUDP {
+    private static final Logger LOGGER = Logger.getLogger(ServidorUDP.class.getName());
     private static final int THREAD_POOL_SIZE = 10;
 
-    private ComunicadorUDP udpManager;
+    private final ComunicadorUDP udpManager;
     private final ExecutorService pool;
     private final ManejadorEventos manejadorEventos;
 
@@ -13,17 +16,18 @@ public class ServidorUDP {
         this.udpManager = new UDPManager(puerto);
         this.pool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
         this.manejadorEventos = new ManejadorEventos(controlador);
-    
+
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("\nApagando servidor UDP...");
+            LOGGER.info("Apagando servidor UDP...");
             udpManager.cerrar();
-            pool.shutdown(); 
-            System.out.println("Recursos liberados. Servidor cerrado.");
+            pool.shutdown();
+            LOGGER.info("Recursos liberados. Servidor cerrado.");
         }));
     }
 
     public void iniciar() {
-        System.out.println("Servidor UDP escuchando en el puerto " + ((UDPManager) udpManager).getSocket().getLocalPort());
+        int puerto = ((UDPManager) udpManager).getSocket().getLocalPort();
+        LOGGER.info("Servidor UDP escuchando en el puerto " + puerto);
         byte[] buffer = new byte[1024];
 
         while (true) {
@@ -33,10 +37,15 @@ public class ServidorUDP {
                     paquete.getData().clone(), paquete.getLength(),
                     paquete.getAddress(), paquete.getPort()
                 );
-                pool.execute(() -> manejadorEventos.procesar(copia));
+                pool.execute(() -> {
+                    try {
+                        manejadorEventos.procesar(copia);
+                    } catch (Exception e) {
+                        LOGGER.log(Level.SEVERE, "Error al procesar paquete UDP", e);
+                    }
+                });
             } catch (Exception e) {
-                System.out.println("Error al recibir paquete UDP.");
-                e.printStackTrace();
+                LOGGER.log(Level.SEVERE, "Error al recibir paquete UDP", e);
             }
         }
     }

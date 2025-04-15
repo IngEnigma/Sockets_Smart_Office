@@ -1,8 +1,9 @@
 import java.util.Random;
 
 public class SensorHumedad extends Sensor {
-    public SensorHumedad(Random random) {
-        super("Humedad", random);
+
+    public SensorHumedad() {
+        super("Humedad", 5);
     }
 
     @Override

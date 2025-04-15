@@ -1,22 +1,23 @@
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.List;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public abstract class Sensor {
+    private static final Random RANDOM = new Random(); 
     private List<SensorObserver> observers = new ArrayList<>();
     private ScheduledExecutorService scheduler;
+    private long intervalo;
     private String tipo;
-    private Random random;
 
     public void iniciar() {
         if (scheduler == null || scheduler.isShutdown()) {
             scheduler = Executors.newSingleThreadScheduledExecutor();
             scheduler.scheduleAtFixedRate(() -> {
                 leerValor(); 
-            }, 0, 5, TimeUnit.SECONDS);
+            }, 0, intervalo, TimeUnit.SECONDS);
         }
     }
 
@@ -34,9 +35,9 @@ public abstract class Sensor {
         }
     }
 
-    public Sensor(String tipo, Random random) {
+    public Sensor(String tipo, long intervalo) {
+        this.intervalo = intervalo;
         this.tipo = tipo;
-        this.random = random;
     }
 
     public String getTipo() {
@@ -44,7 +45,7 @@ public abstract class Sensor {
     }
 
     protected Random getRandom() {
-        return random;
+        return RANDOM;
     }
 
     public void agregarObserver(SensorObserver observer) {
