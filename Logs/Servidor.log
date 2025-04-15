@@ -86,3 +86,31 @@ abr. 15, 2025 1:04:13 A. M. ManejadorEventos procesar
 INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=599.15
 abr. 15, 2025 1:04:13 A. M. ManejadorEventos procesar
 INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=2.24
+abr. 15, 2025 1:50:31 A. M. Servidor main
+INFORMACIÓN: Servidor iniciado correctamente.
+abr. 15, 2025 1:50:31 A. M. ServidorUDP iniciar
+INFORMACIÓN: Servidor UDP escuchando en el puerto 12345
+abr. 15, 2025 1:50:35 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=674.97
+abr. 15, 2025 1:50:35 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=29.45
+abr. 15, 2025 1:50:35 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=36.79
+abr. 15, 2025 1:50:35 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=46.22
+abr. 15, 2025 1:50:40 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=46.45
+abr. 15, 2025 1:50:40 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=22.97
+abr. 15, 2025 1:50:40 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=910.97
+abr. 15, 2025 1:50:40 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=28.86
+abr. 15, 2025 1:50:45 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=52.81
+abr. 15, 2025 1:50:45 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=993.26
+abr. 15, 2025 1:50:45 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=45.41
+abr. 15, 2025 1:50:45 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=20.64
