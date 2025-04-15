@@ -1,13 +1,14 @@
 import java.util.Random;
 
 public class SensorCalidadAire extends Sensor {
-    public SensorCalidadAire(Random random) {
-        super("CalidadAire", random);
+
+    public SensorCalidadAire() {
+        super("CalidadAire", 5);
     }
 
     @Override
     public double leerValor() {
-        double valor = getRandom().nextDouble() * 100; // 0% - 100%
+        double valor = 400 + getRandom().nextDouble() * 800; // 400 – 1200 PPM
         valor = Utils.redondearADosDecimales(valor);
         notificarObservers(valor); 
         return valor;

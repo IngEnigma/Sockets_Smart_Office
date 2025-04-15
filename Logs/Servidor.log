@@ -1,0 +1,88 @@
+abr. 14, 2025 11:44:49 P. M. Servidor main
+INFORMACIÓN: Servidor iniciado correctamente.
+abr. 14, 2025 11:44:49 P. M. ServidorUDP iniciar
+INFORMACIÓN: Servidor UDP escuchando en el puerto 12345
+abr. 14, 2025 11:45:03 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=538.1
+abr. 14, 2025 11:45:03 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=54.34
+abr. 14, 2025 11:45:03 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=30.0
+abr. 14, 2025 11:45:03 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=21.98
+abr. 14, 2025 11:45:08 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=53.26
+abr. 14, 2025 11:45:08 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=759.8
+abr. 14, 2025 11:45:08 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=20.69
+abr. 14, 2025 11:45:08 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=74.5
+abr. 14, 2025 11:45:13 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=26.24
+abr. 14, 2025 11:45:13 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=461.1
+abr. 14, 2025 11:45:13 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=76.47
+abr. 14, 2025 11:45:13 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=54.81
+abr. 14, 2025 11:45:18 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=415.76
+abr. 14, 2025 11:45:18 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=31.69
+abr. 14, 2025 11:45:18 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=51.0
+abr. 14, 2025 11:45:18 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=20.35
+abr. 14, 2025 11:45:23 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=9.21
+abr. 14, 2025 11:45:23 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=517.39
+abr. 14, 2025 11:45:23 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=50.5
+abr. 14, 2025 11:45:23 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=20.39
+abr. 14, 2025 11:45:28 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=677.16
+abr. 14, 2025 11:45:28 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=94.69
+abr. 14, 2025 11:45:28 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=47.82
+abr. 14, 2025 11:45:28 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=21.61
+abr. 14, 2025 11:45:33 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=21.38
+abr. 14, 2025 11:45:33 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=688.46
+abr. 14, 2025 11:45:33 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=69.97
+abr. 14, 2025 11:45:33 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=42.42
+abr. 14, 2025 11:45:38 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=47.84
+abr. 14, 2025 11:45:38 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=23.38
+abr. 14, 2025 11:45:38 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=504.8
+abr. 14, 2025 11:45:38 P. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=56.65
+abr. 15, 2025 1:04:05 A. M. Servidor main
+INFORMACIÓN: Servidor iniciado correctamente.
+abr. 15, 2025 1:04:05 A. M. ServidorUDP iniciar
+INFORMACIÓN: Servidor UDP escuchando en el puerto 12345
+abr. 15, 2025 1:04:08 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=58.35
+abr. 15, 2025 1:04:08 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=23.0
+abr. 15, 2025 1:04:08 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=25.1
+abr. 15, 2025 1:04:08 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=622.38
+abr. 15, 2025 1:04:13 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Temperatura', Valor=23.12
+abr. 15, 2025 1:04:13 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Humedad', Valor=58.85
+abr. 15, 2025 1:04:13 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='CalidadAire', Valor=599.15
+abr. 15, 2025 1:04:13 A. M. ManejadorEventos procesar
+INFORMACIÓN: Mensaje recibido: Evento: EventoSensor Sensor='Luz', Valor=2.24

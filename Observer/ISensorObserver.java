@@ -1,3 +1,3 @@
-public interface SensorObserver {
+public interface ISensorObserver {
     void actualizar(EventoSensor evento);
 }

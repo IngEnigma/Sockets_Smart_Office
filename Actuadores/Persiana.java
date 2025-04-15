@@ -1,35 +1,40 @@
-public class Persiana implements Actuador {
-    private boolean abierta;
-    private int apertura; // 0% - 100%
+public class Persiana extends ActuadorBase {
+    private int porcentajeApertura; // 0% - 100%
 
     @Override
     public void encender() {
-        this.abierta = true;
-        this.apertura = 100;
-        System.out.println("Persiana abierta");
+        super.encender(); 
+        this.porcentajeApertura = 100;
+        System.out.println("Persiana abierta al 100%");
     }
 
     @Override
     public void apagar() {
-        this.abierta = false;
-        this.apertura = 0; 
+        super.apagar();
+        this.porcentajeApertura = 0;
         System.out.println("Persiana cerrada");
     }
 
     @Override
     public void ajustar(int porcentajeApertura) {
-        if (porcentajeApertura < 0) porcentajeApertura = 0;
-        if (porcentajeApertura > 100) porcentajeApertura = 100;
+        porcentajeApertura = Math.max(0, Math.min(100, porcentajeApertura));
+        
+        if (this.porcentajeApertura != porcentajeApertura) {
+            this.porcentajeApertura = porcentajeApertura;
 
-        this.apertura = porcentajeApertura;
-        System.out.println("Ajustando persiana a " + porcentajeApertura + "% de apertura");
+            if (!encendido && porcentajeApertura > 0) {
+                encender(); 
+            }
+
+            System.out.println("Ajustando persiana a " + porcentajeApertura + "% de apertura");
+        }
     }
 
-    public int getApertura() {
-        return apertura;
+    public int getPorcentajeApertura() {
+        return porcentajeApertura;
     }
 
     public boolean isAbierta() {
-        return abierta;
+        return encendido; 
     }
 }

@@ -1,15 +1,43 @@
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.List;
+import java.util.Random;
 
 public abstract class Sensor {
+    private static final Random RANDOM = new Random(); 
+    private List<ISensorObserver> observers = new ArrayList<>();
+    private ScheduledExecutorService scheduler;
+    private long intervalo;
     private String tipo;
-    private Random random;
-    private List<SensorObserver> observers = new ArrayList<>();
 
-    public Sensor(String tipo, Random random) {
+    public void iniciar() {
+        if (scheduler == null || scheduler.isShutdown()) {
+            scheduler = Executors.newSingleThreadScheduledExecutor();
+            scheduler.scheduleAtFixedRate(() -> {
+                leerValor(); 
+            }, 0, intervalo, TimeUnit.SECONDS);
+        }
+    }
+
+    public void detener() {
+        if (scheduler != null && !scheduler.isShutdown()) {
+            scheduler.shutdown();
+            System.out.println("Sensor de tipo " + tipo + " detenido.");
+        }
+    }
+
+    protected void notificarObservers(double valor) {
+        EventoSensor evento = new EventoSensor(tipo, valor);
+        for (ISensorObserver observer : observers) {
+            observer.actualizar(evento);
+        }
+    }
+
+    public Sensor(String tipo, long intervalo) {
+        this.intervalo = intervalo;
         this.tipo = tipo;
-        this.random = random;
     }
 
     public String getTipo() {
@@ -17,36 +45,16 @@ public abstract class Sensor {
     }
 
     protected Random getRandom() {
-        return random;
+        return RANDOM;
     }
 
-    public void agregarObserver(SensorObserver observer) {
+    public void agregarObserver(ISensorObserver observer) {
         observers.add(observer);
     }
 
-    public void eliminarObserver(SensorObserver observer) {
+    public void eliminarObserver(ISensorObserver observer) {
         observers.remove(observer);
     }
-
-    protected void notificarObservers(double valor) {
-        EventoSensor evento = new EventoSensor(tipo, valor);
-        for (SensorObserver observer : observers) {
-            observer.actualizar(evento);
-        }
-    }
-
-    public void iniciar() {
-        new Thread(() -> {
-            while (true) {
-                double valor = leerValor();  // leer y notificar
-                try {
-                    Thread.sleep(5000); // espera 5 segundos (puedes ajustar)
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }    
 
     public abstract double leerValor(); 
 }
