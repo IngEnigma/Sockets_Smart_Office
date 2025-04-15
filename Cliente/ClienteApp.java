@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,7 +8,7 @@ public class ClienteApp {
     private final SensorEventDispatcher dispatcher;
 
     public ClienteApp() {
-        ComunicadorUDP udpManager;
+        IComunicadorUDP udpManager;
         try {
             udpManager = new UDPManager();
         } catch (Exception e) {
@@ -15,22 +16,32 @@ public class ClienteApp {
         }
         this.dispatcher = new SensorEventDispatcher(udpManager);
     }
-    
+
     public void iniciar() {
         try {
-            GestorSensores gestorSensores = new GestorSensores();
-            List<Sensor> sensores = gestorSensores.getSensores();
+            LoggerConfig.configurarLoggerGlobal("cliente");
 
+            List<ISensorFactory> factories = new ArrayList<>();
+            factories.add(new SensorTemperaturaFactory());
+            factories.add(new SensorLuzFactory());
+            factories.add(new SensorHumedadFactory());
+            factories.add(new SensorCalidadAireFactory());
+
+            GestorSensores gestorSensores = new GestorSensores(factories);
+
+            List<Sensor> sensores = gestorSensores.getSensores();
             for (Sensor sensor : sensores) {
                 sensor.agregarObserver(dispatcher);
                 sensor.iniciar();
             }
 
             mantenerActivo();
+
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error al iniciar la aplicación cliente", e);
         }
     }
+
 
     private void mantenerActivo() throws InterruptedException {
         while (!Thread.currentThread().isInterrupted()) {

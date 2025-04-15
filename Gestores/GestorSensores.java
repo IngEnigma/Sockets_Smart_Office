@@ -2,18 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GestorSensores {
-    private List<Sensor> sensores;
+    private final List<Sensor> sensores;
 
-    public GestorSensores() {
-        this.sensores = new ArrayList<>();
-        inicializarSensores();
-    }
-
-    private void inicializarSensores() {
-        sensores.add(new SensorTemperatura());
-        sensores.add(new SensorHumedad());
-        sensores.add(new SensorLuz());
-        sensores.add(new SensorCalidadAire());
+    public GestorSensores(List<ISensorFactory> factories) {
+        sensores = new ArrayList<>();
+        for (ISensorFactory factory : factories) {
+            sensores.add(factory.crearSensor());
+        }
     }
 
     public List<Sensor> getSensores() {
@@ -23,7 +18,8 @@ public class GestorSensores {
     public List<EventoSensor> leerDatosSensores() {
         List<EventoSensor> eventos = new ArrayList<>();
         for (Sensor sensor : sensores) {
-            eventos.add(new EventoSensor(sensor.getTipo(), sensor.leerValor()));
+            double valor = sensor.leerValor();
+            eventos.add(new EventoSensor(sensor.getTipo(), valor));
         }
         return eventos;
     }

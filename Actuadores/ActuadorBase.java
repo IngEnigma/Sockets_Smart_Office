@@ -1,4 +1,4 @@
-public abstract class ActuadorBase implements Actuador {
+public abstract class ActuadorBase implements IActuador {
     protected boolean encendido;
 
     @Override

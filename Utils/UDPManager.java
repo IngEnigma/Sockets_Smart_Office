@@ -2,7 +2,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class UDPManager implements ComunicadorUDP {
+public class UDPManager implements IComunicadorUDP {
     private DatagramSocket socket;
 
     public UDPManager() throws Exception {

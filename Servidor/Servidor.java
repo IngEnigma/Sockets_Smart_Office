@@ -6,7 +6,7 @@ public class Servidor {
     private static final int PUERTO = 12345;
 
     public static void main(String[] args) {
-        LoggerConfig.configurarLoggerGlobal();
+        LoggerConfig.configurarLoggerGlobal("servidor");
 
         try {
             ControladorOficina controlador = new ControladorOficina();

@@ -7,7 +7,7 @@ import java.util.Random;
 
 public abstract class Sensor {
     private static final Random RANDOM = new Random(); 
-    private List<SensorObserver> observers = new ArrayList<>();
+    private List<ISensorObserver> observers = new ArrayList<>();
     private ScheduledExecutorService scheduler;
     private long intervalo;
     private String tipo;
@@ -30,7 +30,7 @@ public abstract class Sensor {
 
     protected void notificarObservers(double valor) {
         EventoSensor evento = new EventoSensor(tipo, valor);
-        for (SensorObserver observer : observers) {
+        for (ISensorObserver observer : observers) {
             observer.actualizar(evento);
         }
     }
@@ -48,11 +48,11 @@ public abstract class Sensor {
         return RANDOM;
     }
 
-    public void agregarObserver(SensorObserver observer) {
+    public void agregarObserver(ISensorObserver observer) {
         observers.add(observer);
     }
 
-    public void eliminarObserver(SensorObserver observer) {
+    public void eliminarObserver(ISensorObserver observer) {
         observers.remove(observer);
     }
 

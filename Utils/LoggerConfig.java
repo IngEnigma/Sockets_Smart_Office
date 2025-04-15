@@ -2,8 +2,7 @@ import java.io.IOException;
 import java.util.logging.*;
 
 public class LoggerConfig {
-
-    public static void configurarLoggerGlobal() {
+    public static void configurarLoggerGlobal(String tipo) {
         Logger rootLogger = Logger.getLogger("");
         Handler[] handlers = rootLogger.getHandlers();
 
@@ -16,7 +15,8 @@ public class LoggerConfig {
             consoleHandler.setLevel(Level.INFO);
             consoleHandler.setFormatter(new SimpleFormatter());
 
-            FileHandler fileHandler = new FileHandler("Logs/Servidor.log", true); 
+            String nombreArchivo = tipo.equalsIgnoreCase("cliente") ? "Logs/Cliente.log" : "Logs/Servidor.log";
+            FileHandler fileHandler = new FileHandler(nombreArchivo, true);
             fileHandler.setLevel(Level.ALL);
             fileHandler.setFormatter(new SimpleFormatter());
 

@@ -8,7 +8,7 @@ public class ServidorUDP {
     private static final Logger LOGGER = Logger.getLogger(ServidorUDP.class.getName());
     private static final int THREAD_POOL_SIZE = 10;
 
-    private final ComunicadorUDP udpManager;
+    private final IComunicadorUDP udpManager;
     private final ExecutorService pool;
     private final ManejadorEventos manejadorEventos;
 
