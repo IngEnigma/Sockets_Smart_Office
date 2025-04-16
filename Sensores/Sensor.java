@@ -6,11 +6,17 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class Sensor {
-    private static final Random RANDOM = new Random(); 
     private List<ISensorObserver> observers = new ArrayList<>();
+    private static final Random RANDOM = new Random(); 
     private ScheduledExecutorService scheduler;
+
+    private double valorActual;
     private long intervalo;
     private String tipo;
+
+    protected abstract double generarValorAleatorio();
+    
+    protected abstract double leerValor();
 
     public void iniciar() {
         if (scheduler == null || scheduler.isShutdown()) {
@@ -24,7 +30,7 @@ public abstract class Sensor {
     public void detener() {
         if (scheduler != null && !scheduler.isShutdown()) {
             scheduler.shutdown();
-            System.out.println("Sensor de tipo " + tipo + " detenido.");
+            System.out.println("Sensor " + tipo + " detenido.");
         }
     }
 
@@ -35,19 +41,6 @@ public abstract class Sensor {
         }
     }
 
-    public Sensor(String tipo, long intervalo) {
-        this.intervalo = intervalo;
-        this.tipo = tipo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    protected Random getRandom() {
-        return RANDOM;
-    }
-
     public void agregarObserver(ISensorObserver observer) {
         observers.add(observer);
     }
@@ -55,6 +48,26 @@ public abstract class Sensor {
     public void eliminarObserver(ISensorObserver observer) {
         observers.remove(observer);
     }
+    
+    public Sensor(String tipo, long intervalo) {
+        this.intervalo = intervalo;
+        this.tipo = tipo;
+        this.valorActual = generarValorAleatorio();
+    }
 
-    public abstract double leerValor(); 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public double getValorActual() {
+        return valorActual;
+    }
+
+    public void setValorActual(double valorActual) {
+        this.valorActual = valorActual;
+    }
+
+    protected Random getRandom() {
+        return RANDOM;
+    }
 }

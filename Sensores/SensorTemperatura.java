@@ -7,9 +7,14 @@ public class SensorTemperatura extends Sensor {
     }
 
     @Override
+    protected double generarValorAleatorio() {
+        double valor = 24 + getRandom().nextDouble() * 4; // 24.00° - 28.00°
+        return Utils.redondearADosDecimales(valor);
+    }
+
+    @Override
     public double leerValor() {
-        double valor = 20 + getRandom().nextDouble() * 10; // 20° - 30°
-        valor = Utils.redondearADosDecimales(valor);
+        double valor = generarValorAleatorio();
         notificarObservers(valor); 
         return valor;
     }
