@@ -9,8 +9,7 @@ public class Servidor {
         LoggerConfig.configurarLoggerGlobal("servidor");
 
         try {
-            ControladorOficina controlador = new ControladorOficina();
-            ServidorUDP servidor = new ServidorUDP(PUERTO, controlador);
+            ServidorUDP servidor = new ServidorUDP(PUERTO);
             LOGGER.info("Servidor iniciado correctamente.");
             servidor.iniciar();
         } catch (Exception e) {

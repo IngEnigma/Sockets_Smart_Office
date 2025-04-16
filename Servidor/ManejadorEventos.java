@@ -4,10 +4,8 @@ import java.util.logging.Logger;
 
 public class ManejadorEventos {
     private static final Logger LOGGER = Logger.getLogger(ManejadorEventos.class.getName());
-    private final ControladorOficina controlador;
 
-    public ManejadorEventos(ControladorOficina controlador) {
-        this.controlador = controlador;
+    public ManejadorEventos() {
     }
 
     public void procesar(DatagramPacket paquete) {
@@ -17,7 +15,7 @@ public class ManejadorEventos {
 
             EventoSensor evento = EventoSensor.fromString(mensaje);
             if (evento != null) {
-                controlador.procesarEvento(evento);
+                
             } else {
                 LOGGER.warning("Evento no procesado, formato incorrecto: " + mensaje);
             }

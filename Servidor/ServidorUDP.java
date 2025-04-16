@@ -12,10 +12,10 @@ public class ServidorUDP {
     private final ExecutorService pool;
     private final ManejadorEventos manejadorEventos;
 
-    public ServidorUDP(int puerto, ControladorOficina controlador) throws Exception {
+    public ServidorUDP(int puerto) throws Exception {
         this.udpManager = new UDPManager(puerto);
         this.pool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
-        this.manejadorEventos = new ManejadorEventos(controlador);
+        this.manejadorEventos = new ManejadorEventos();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             LOGGER.info("Apagando servidor UDP...");

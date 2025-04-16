@@ -27,9 +27,6 @@ public class ClienteApp {
             factories.add(new SensorHumedadFactory());
             factories.add(new SensorCalidadAireFactory());
 
-            GestorSensores gestorSensores = new GestorSensores(factories);
-
-            List<Sensor> sensores = gestorSensores.getSensores();
             for (Sensor sensor : sensores) {
                 sensor.agregarObserver(dispatcher);
                 sensor.iniciar();
