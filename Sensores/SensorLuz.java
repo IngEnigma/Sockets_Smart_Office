@@ -3,7 +3,7 @@ import java.util.Random;
 public class SensorLuz extends Sensor {
 
     public SensorLuz() {
-        super("Luz", 5);
+        super("Luz", 20);
     }
 
     @Override

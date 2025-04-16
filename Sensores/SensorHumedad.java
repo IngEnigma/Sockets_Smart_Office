@@ -3,7 +3,7 @@ import java.util.Random;
 public class SensorHumedad extends Sensor {
 
     public SensorHumedad() {
-        super("Humedad", 5);
+        super("Humedad", 20);
     }
 
     @Override
