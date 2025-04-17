@@ -14,3 +14,65 @@ abr. 15, 2025 1:04:13 A. M. SensorEventDispatcher lambda$actualizar$0
 INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=599.15
 abr. 15, 2025 1:04:13 A. M. SensorEventDispatcher lambda$actualizar$0
 INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=2.24
+abr. 15, 2025 1:50:35 A. M. ClienteApp iniciar
+INFORMACIÓN: Cliente iniciado correctamente. Escuchando sensores...
+abr. 15, 2025 1:50:35 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Temperatura', Valor=29.45
+abr. 15, 2025 1:50:35 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=36.79
+abr. 15, 2025 1:50:35 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Humedad', Valor=46.22
+abr. 15, 2025 1:50:35 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=674.97
+abr. 15, 2025 1:50:40 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Humedad', Valor=46.45
+abr. 15, 2025 1:50:40 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Temperatura', Valor=28.86
+abr. 15, 2025 1:50:40 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=22.97
+abr. 15, 2025 1:50:40 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=910.97
+abr. 15, 2025 1:50:45 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Temperatura', Valor=20.64
+abr. 15, 2025 1:50:45 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Humedad', Valor=52.81
+abr. 15, 2025 1:50:45 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=993.26
+abr. 15, 2025 1:50:45 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=45.41
+abr. 15, 2025 2:00:02 A. M. ClienteApp iniciar
+INFORMACIÓN: Cliente iniciado correctamente. Escuchando sensores...
+abr. 15, 2025 2:00:02 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Temperatura', Valor=22.73
+abr. 15, 2025 2:00:02 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=14.0
+abr. 15, 2025 2:00:02 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Humedad', Valor=40.9
+abr. 15, 2025 2:00:02 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=604.31
+abr. 15, 2025 2:00:22 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=62.94
+abr. 15, 2025 2:00:22 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Humedad', Valor=48.02
+abr. 15, 2025 2:00:22 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=920.49
+abr. 15, 2025 2:00:22 A. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Temperatura', Valor=21.88
+abr. 15, 2025 9:20:42 P. M. ClienteApp iniciar
+INFORMACIÓN: Cliente iniciado correctamente. Escuchando sensores...
+abr. 15, 2025 9:20:42 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=1128.03
+abr. 15, 2025 9:20:42 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Temperatura', Valor=24.51
+abr. 15, 2025 9:20:42 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=55.89
+abr. 15, 2025 9:20:42 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Humedad', Valor=57.42
+abr. 15, 2025 9:21:01 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Temperatura', Valor=23.35
+abr. 15, 2025 9:21:01 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Humedad', Valor=46.29
+abr. 15, 2025 9:21:01 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='CalidadAire', Valor=1060.58
+abr. 15, 2025 9:21:01 P. M. SensorEventDispatcher lambda$actualizar$0
+INFORMACIÓN: Mensaje enviado al servidor UDP: Evento: EventoSensor Sensor='Luz', Valor=45.17

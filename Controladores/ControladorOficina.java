@@ -1,70 +1,56 @@
 public class ControladorOficina {
+    private IStrategyAjuste estrategia;
     private GestorActuadores gestorActuadores;
 
     public ControladorOficina() {
         this.gestorActuadores = new GestorActuadores();
+        this.estrategia = new EstrategiaAjusteAutomatico(); 
+    }
+
+    public void cambiarEstrategia(IStrategyAjuste nuevaEstrategia) {
+        this.estrategia = nuevaEstrategia;
     }
 
     public void procesarEvento(EventoSensor evento) {
-        String tipoEvento = evento.getTipo().replace("Evento: ", ""); 
-        
-        switch (tipoEvento) {
+        System.out.println("Procesando evento: " + evento.getTipo() + " = " + evento.getValor());
+
+        switch (evento.getTipo()) {
             case "Temperatura":
-                ajustarTemperatura(evento.getValor());
+                estrategia.ajustar(gestorActuadores.getAireAcondicionado(), evento.getValor());
+                estrategia.ajustar(gestorActuadores.getCalefaccion(), evento.getValor());
                 break;
+
             case "Humedad":
-                ajustarHumedad(evento.getValor());
+                estrategia.ajustar(gestorActuadores.getVentana(), evento.getValor());
                 break;
+
             case "Luz":
-                ajustarIluminacion(evento.getValor());
+                estrategia.ajustar(gestorActuadores.getLuz(), evento.getValor());
+                estrategia.ajustar(gestorActuadores.getPersiana(), evento.getValor());
                 break;
+
             case "CalidadAire":
-                ajustarCalidadAire(evento.getValor());
+                estrategia.ajustar(gestorActuadores.getVentana(), evento.getValor());
                 break;
+
             default:
-                System.out.println("Tipo de evento no reconocido: " + tipoEvento);
-        }
-    }    
-
-    private void ajustarTemperatura(double temperatura) {
-        System.out.println("Ajustando temperatura a " + temperatura + "°C");
-        if (temperatura > 25) {
-            gestorActuadores.ajustarTemperatura((int) temperatura); // Enciende el aire acondicionado
-        } else if (temperatura < 18) {
-            gestorActuadores.ajustarTemperatura((int) temperatura); // Enciende la calefacción
-        } else {
-            gestorActuadores.ajustarTemperatura(22); // Apaga ambos y mantiene una temperatura neutra
+                System.out.println("Evento desconocido: " + evento.getTipo());
         }
     }
 
-    private void ajustarHumedad(double humedad) {
-        System.out.println("Ajustando humedad a " + humedad + "%");
-        if (humedad > 60) {
-            gestorActuadores.ajustarVentana(100); // Abre las ventanas para ventilar
-        } else if (humedad < 40) {
-            gestorActuadores.ajustarVentana(0); // Cierra las ventanas
-        } else {
-            gestorActuadores.ajustarVentana(50); // Mantiene las ventanas semiabiertas
-        }
+    public void encenderTodos() {
+        gestorActuadores.getAireAcondicionado().encender();
+        gestorActuadores.getCalefaccion().encender();
+        gestorActuadores.getLuz().encender();
+        gestorActuadores.getPersiana().encender();
+        gestorActuadores.getVentana().encender();
     }
 
-    private void ajustarIluminacion(double intensidadLuz) {
-        System.out.println("Ajustando iluminación a " + intensidadLuz + "%");
-        if (intensidadLuz < 30) {
-            gestorActuadores.ajustarIluminacion(100); // Enciende las luces al máximo
-        } else if (intensidadLuz > 70) {
-            gestorActuadores.ajustarIluminacion(0); // Apaga las luces
-        } else {
-            gestorActuadores.ajustarIluminacion(50); // Ajusta las luces al 50%
-        }
-    }
-
-    private void ajustarCalidadAire(double calidadAire) {
-        System.out.println("Ajustando calidad del aire a " + calidadAire + "%");
-        if (calidadAire < 50) {
-            gestorActuadores.ajustarVentana(100); // Abre las ventanas para ventilar
-        } else {
-            gestorActuadores.ajustarVentana(0); // Cierra las ventanas
-        }
+    public void apagarTodos() {
+        gestorActuadores.getAireAcondicionado().apagar();
+        gestorActuadores.getCalefaccion().apagar();
+        gestorActuadores.getLuz().apagar();
+        gestorActuadores.getPersiana().apagar();
+        gestorActuadores.getVentana().apagar();
     }
 }

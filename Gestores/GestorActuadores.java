@@ -1,40 +1,35 @@
 public class GestorActuadores {
-    private Luz luz;
-    private Ventana ventana;
-    private Persiana persiana;
     private AireAcondicionado aireAcondicionado;
     private Calefaccion calefaccion;
+    private Luz luz;
+    private Persiana persiana;
+    private Ventana ventana;
 
     public GestorActuadores() {
-        this.luz = new Luz();
-        this.ventana = new Ventana();
-        this.persiana = new Persiana();
         this.aireAcondicionado = new AireAcondicionado();
         this.calefaccion = new Calefaccion();
+        this.luz = new Luz();
+        this.persiana = new Persiana();
+        this.ventana = new Ventana();
     }
 
-    public void ajustarIluminacion(int intensidad) {
-        luz.ajustar(intensidad);
+    public AireAcondicionado getAireAcondicionado() {
+        return aireAcondicionado;
     }
 
-    public void ajustarVentana(int porcentajeApertura) {
-        ventana.ajustar(porcentajeApertura);
+    public Calefaccion getCalefaccion() {
+        return calefaccion;
     }
 
-    public void ajustarPersiana(int porcentajeApertura) {
-        persiana.ajustar(porcentajeApertura);
+    public Luz getLuz() {
+        return luz;
     }
 
-    public void ajustarTemperatura(int temperatura) {
-        if (temperatura > 25) {
-            aireAcondicionado.ajustar(temperatura);
-            calefaccion.apagar();
-        } else if (temperatura < 18) {
-            calefaccion.ajustar(temperatura);
-            aireAcondicionado.apagar();
-        } else {
-            aireAcondicionado.apagar();
-            calefaccion.apagar();
-        }
+    public Persiana getPersiana() {
+        return persiana;
+    }
+
+    public Ventana getVentana() {
+        return ventana;
     }
 }

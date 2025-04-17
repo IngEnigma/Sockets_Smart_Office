@@ -35,6 +35,15 @@ public class ClienteApp {
                 sensor.iniciar();
             }
 
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                LOGGER.info("Apagando sensores y cerrando cliente...");
+                for (Sensor sensor : sensores) {
+                    sensor.detener(); 
+                }
+            }));
+
+            LOGGER.info("Cliente iniciado correctamente. Escuchando sensores...");
+
             mantenerActivo();
 
         } catch (Exception e) {
